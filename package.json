@@ -1,0 +1,24 @@
+{
+  "name": "pg6301-exercise-6-hono",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubu0020/pg6301-exercise-6-hono.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mubu0020/pg6301-exercise-6-hono/issues"
+  },
+  "homepage": "https://github.com/mubu0020/pg6301-exercise-6-hono#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
