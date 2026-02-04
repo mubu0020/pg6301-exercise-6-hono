@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Application() {
-    const [tasks] = useState([
-        { description: "Create project", completed: true },
-        { description: "Create React webapp", completed: false },
-        { description: "Create Hono backend", completed: false },
-    ]);
+    const [tasks, setTasks] = useState([]);
+
+    async function loadTasks() {
+        const res = await fetch("/api/tasks");
+        setTasks(await res.json());
+    }
+
+    useEffect(() => {
+        loadTasks();
+    }, []);
 
     return (
         <>
