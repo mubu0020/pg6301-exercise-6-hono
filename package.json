@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mubu0020/pg6301-exercise-6-hono#readme",
   "description": "",
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.3",
     "vite": "^7.3.1"
   },
   "dependencies": {
