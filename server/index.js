@@ -1,0 +1,17 @@
+import { Hono } from "hono";
+import { serve } from "@hono/node-server";
+
+const app = new Hono();
+
+const tasks = [
+    { description: "Create project (server)", completed: true },
+    { description: "Create React webapp (server)", completed: true },
+    { description: "Create Hono backend", completed: false },
+    { description: "Update with Hono backend", completed: false },
+];
+
+app.get("/api/tasks", (c) => {
+    return c.json(tasks);
+});
+
+serve(app);
