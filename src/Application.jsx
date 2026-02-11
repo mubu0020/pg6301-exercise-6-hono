@@ -24,6 +24,16 @@ export function Application() {
         loadTasks();
     }
 
+    async function handleCompleted(taskId, completed) {
+        await fetch(`/api/tasks/${taskId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ completed }),
+        });
+
+        loadTasks();
+    }
+
     useEffect(() => {
         loadTasks();
     }, []);
@@ -41,8 +51,17 @@ export function Application() {
             </form>
 
             <ul>
-                {tasks.map((t, index) => (
-                    <li key={index}>{t.description}</li>
+                {tasks.map((t) => (
+                    <li key={t.id}>
+                        <input
+                            type="checkbox"
+                            checked={t.completed}
+                            onChange={(e) =>
+                                handleCompleted(t.id, e.target.checked)
+                            }
+                        />
+                        {t.description}
+                    </li>
                 ))}
             </ul>
         </>
