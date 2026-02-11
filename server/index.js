@@ -27,4 +27,19 @@ app.post("/api/tasks", async (c) => {
     return c.newResponse(null, 201);
 });
 
+app.put("/api/tasks/:taskId", async (c) => {
+    const { taskId } = c.req.param();
+    const { completed } = await c.req.json();
+
+    const task = tasks.find((t) => t.id === taskId);
+
+    if (!task) {
+        return c.newResponse("Not found", 404);
+    }
+
+    task.completed = completed;
+
+    return c.newResponse(null, 204);
+});
+
 serve(app);
